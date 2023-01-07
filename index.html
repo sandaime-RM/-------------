@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!--Bootstrap-->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+    
+    <!--CSS-->
+    <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ビリケンさんスタンプラリー</title>
+</head>
+<body>
+    <header class="py-5 text-center wf-notosansjapanese">
+        <h1>ビリケンさんを探せ！</h1>
+        <p class="text-secondary">ビリケンさんスタンプラリー</p>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="py-3 text-center">
+                <p>４体のビリケンさんを探そう！<br>
+                    ビリケンさんの側にあるポスターのQRコードを読み取ってください。</p>
+            </div>
+
+            <div class="row">
+                <div class="col-6 px-2 py-2">
+                    <div class="card">
+                        <img src="img/mono_biriken.png" class="card-img-top" id="stamp1">
+                        <div class="card-body">
+                            <h6 class="card-title">初代利根運河ビリケンさん</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 px-2 py-2">
+                    <div class="card">
+                        <img src="img/mono_biriken.png" class="card-img-top" id="stamp2">
+                        <div class="card-body">
+                            <h6 class="card-title">二代目利根運河ビリケンさん</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 px-2 py-2">
+                    <div class="card">
+                        <img src="img/mono_biriken.png" class="card-img-top" id="stamp3">
+                        <div class="card-body">
+                            <h6 class="card-title">大阪通天閣金色ビリケンさん</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 px-2 py-2">
+                    <div class="card">
+                        <img src="img/mono_biriken.png" class="card-img-top" id="stamp4">
+                        <div class="card-body">
+                            <h6 class="card-title">出張ビリケンさん</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-warning my-3 text-center" id="clear" style="display: none;">
+                <h3>全スタンプ達成！！</h3>
+                <p>利根運河交流館のスタッフにこの画面を提示して、景品と交換しましょう！</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="px-3 py-4 mt-3 wf-notosansjapanese">
+        <p>運営：利根運河交流館<br>
+        システム制作：メディアアートサークル C4's</p>
+    </footer>
+
+    <script>
+        var clear = true;
+
+        window.onload = function() {
+            for(var i=1; i<=4; i++) {
+                stampDone = localStorage.getItem("stamp" + i);
+                if(stampDone) {
+                    document.getElementById("stamp" + i).src = "img/completed.jpg";
+                } else {
+                    clear = false;
+                }
+            }
+
+            if(clear) {
+                document.getElementById("clear").style.display = "inherit"
+            }
+        }
+    </script>
+</body>
+</html>
