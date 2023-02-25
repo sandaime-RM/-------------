@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="col-6 px-2 py-2">
                     <div class="card">
-                        <img src="img/mono_biriken.png" class="card-img-top" id="stamp1" style="height: 160px; object-fit:contain;">
+                        <img src="img/shodai_pre.jpg" class="rounded-pill border" id="stamp1">
                         <div class="card-body">
                             <h6 class="card-title">初代利根運河ビリケンさん</h6>
                             <div class="text-secondary small">流山市立博物館</div>
@@ -54,7 +54,7 @@
 
                 <div class="col-6 px-2 py-2">
                     <div class="card">
-                        <img src="img/mono_biriken.png" class="card-img-top" id="stamp2" style="height: 160px; object-fit:contain;">
+                        <img src="img/nidaime_pre.jpg" class="rounded-pill border" id="stamp2">
                         <div class="card-body">
                             <h6 class="card-title">二代目利根運河ビリケンさん</h6>
                             <div class="text-secondary small">利根運河交流館</div>
@@ -64,7 +64,7 @@
 
                 <div class="col-6 px-2 py-2">
                     <div class="card">
-                        <img src="img/mono_biriken.png" class="card-img-top" id="stamp3" style="height: 160px; object-fit:contain;">
+                        <img src="img/kinniro_pre.jpg" class="rounded-pill border" id="stamp3">
                         <div class="card-body">
                             <h6 class="card-title">金色ビリケンさん</h6>
                             <div class="text-secondary small">流山おおたかの森駅前観光情報センター</div>
@@ -74,13 +74,20 @@
 
                 <div class="col-6 px-2 py-2">
                     <div class="card">
-                        <img src="img/mono_biriken.png" class="card-img-top" id="stamp4" style="height: 160px; object-fit:contain;">
+                        <img src="img/shuttyou_pre.jpg" class="rounded-pill border" id="stamp4">
                         <div class="card-body">
                             <h6 class="card-title">出張ビリケンさん</h6>
                             <div class="text-secondary small">森の図書館</div>
                         </div>
                     </div>
                 </div>
+
+                <style>
+                    img {
+                        width: 100%; height: auto; object-fit: cover;
+                        max-width: 300px;
+                    }
+                </style>
             </div>
         </div>
     </main>
@@ -92,12 +99,13 @@
 
     <script>
         var clear = true;
+        var afterImgs = ["shodai_after.png", "nidaime_after.png", "kinniro_after.png", "shuttyou_after.png"]
 
         window.onload = function() {
             for(var i=1; i<=4; i++) {
                 stampDone = localStorage.getItem("stamp" + i);
                 if(stampDone) {
-                    document.getElementById("stamp" + i).src = "img/completed.jpg";
+                    document.getElementById("stamp" + i).src = "img/" + afterImgs[i-1];
                 } else {
                     clear = false;
                 }
