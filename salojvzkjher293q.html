@@ -44,6 +44,15 @@
     <script>
         window.onload = function() {
             localStorage.setItem("stamp1", true);
+
+            if(localStorage.getItem("rta")) {
+                var data = JSON.parse(localStorage.getItem("rta"));
+
+                data.stamp1 = (new Date()).getTime();
+
+                localStorage.setItem("rta", JSON.stringify(data));
+                alert("RTA MODE : 記録しました");
+            }
         }
     </script>
 </body>
