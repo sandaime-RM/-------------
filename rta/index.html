@@ -218,6 +218,7 @@
                 push(ref(db, "stamprally"), rtaData)
                 .then( () => {
                     alert("送信完了しました。");
+                    document.getElementById("start").disabled = true;
                 });
             }
         }
