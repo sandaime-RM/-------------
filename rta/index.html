@@ -118,13 +118,18 @@
 
                 Object.keys(data).forEach((element, index) => {
                     var time = data[element].stamp1;
+                    var start = data[element].stamp1;
 
                     if(data[element].stamp2 > time) {time = data[element].stamp2}
                     if(data[element].stamp3 > time) {time = data[element].stamp3}
                     if(data[element].stamp4 > time) {time = data[element].stamp4}
 
+                    if(data[element].stamp2 < start) {start = data[element].stamp2}
+                    if(data[element].stamp3 < start) {start = data[element].stamp3}
+                    if(data[element].stamp4 < start) {start = data[element].stamp4}
+
                     var endTime = time;
-                    time = time - data[element].startTime;
+                    time = time - start;
 
                     data[element].time = time;
                     data[element].endTime = endTime;
