@@ -137,13 +137,17 @@
                 });
 
                 let result = record.sort(function(a, b) {
-                    return (a.time > b.time) ? -1 : 1;  //オブジェクトの降順ソート
+                    return (a.time < b.time) ? -1 : 1;  //オブジェクトの降順ソート
                 });
 
                 console.log(result)
 
                 result.forEach((element, index) => {
-                    document.getElementById("rank").innerHTML += '<li class="list-group-item">'+(index + 1) + ". " + element.name+' さん<br><span class="small fw-bold text-secondary">時間 '+ Math.floor(element.time/1000/60/60)%24 +":" + Math.floor(element.time/1000/60)%60 + ":" + Math.floor(element.time/1000)%60+'　達成日時 '+(new Date(element.endTime)).toLocaleString()+'</span></li>';
+                    var day = "";
+                    if(element.time > 1000*60*60*24) {
+                        day = Math.floor(element.time/1000/60/60/24) + "日 ";
+                    }
+                    document.getElementById("rank").innerHTML += '<li class="list-group-item">'+(index + 1) + ". " + element.name+' さん<br><span class="small fw-bold text-secondary">時間 '+ day + Math.floor(element.time/1000/60/60)%24 +":" + Math.floor(element.time/1000/60)%60 + ":" + Math.floor(element.time/1000)%60+'　達成日時 '+(new Date(element.endTime)).toLocaleString()+'</span></li>';
                 });
             });
 
